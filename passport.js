@@ -22,7 +22,7 @@ module.exports = function () {
         passReqToCallback: true
         }, async function(req, id, password, done) {
             try {
-                var account = {user: '', email: ''};
+                var account = {user: '',name: '', email: '', age: '', sex: '', height:'', weight: '', sick: '', allergy: '', significant: '' };
                 const result = await UserModel.GetUser(id);
                 if (result.error) {
                     console.log(result.error);
@@ -41,7 +41,15 @@ module.exports = function () {
                         } 
                         else {
                             account.user = user[0].id;
+                            account.name = user[0].name;
                             account.email = user[0].email;
+                            account.sex = user[0].sex;
+                            account.age = user[0].age;
+                            account.height = user[0].height;
+                            account.weight = user[0].weight;
+                            account.sick = user[0].sick;
+                            account.allergy = user[0].allergy;
+                            account.significant = user[0].significant;
                             return done(null, account);
                         }
                     }); //hasher

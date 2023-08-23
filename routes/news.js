@@ -6,8 +6,27 @@ const cheerio     = require('cheerio');
 
 
 router.get('/', async function(req, res) {
-    let user_id = req.session.passport.user['user'];
-    
+    let user_id = undefined;
+    let user_email = undefined;
+    let user_age = undefined;
+    let user_sex = undefined;
+    let user_height = undefined;
+    let user_weight = undefined;
+    let user_sick = undefined;
+    let user_allergy = undefined;
+    let user_significant = undefined;
+    if (req.session.passport) {
+        userinfo = req.session.passport.user
+        user_id = req.session.passport.user['user'];
+        user_email = req.session.passport.user['email'];
+        user_age = req.session.passport.user['age']; 
+        user_sex = req.session.passport.user['sex']; 
+        user_height = req.session.passport.user['height']; 
+        user_weight = req.session.passport.user['weight']; 
+        user_sick = req.session.passport.user['sick']; 
+        user_allergy = req.session.passport.user['allergy'];
+        user_significant = req.session.passport.user['significant'];  
+    } 
     url = "https://news.naver.com/main/ranking/popularDay.naver";
     
     
@@ -24,6 +43,7 @@ router.get('/', async function(req, res) {
             let link = $(news).find('div > a').attr('href');
             context.push({title: title, link: link});
         });
+        console.log(user_allergy);
         res.render('news', {user_id: user_id, context: context});
     } catch (error) {
         console.log(error);
