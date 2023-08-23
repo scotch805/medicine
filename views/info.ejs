@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </head>
+<body>
+  <header>
+      <%- include('./header') %>
+  </header>
+	<main>
+    <form action="/user/signup" method="POST">
+      <div class="container">  
+        <!--아이디-->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                아이디
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_id%>
+                </div>
+              </div>
+            </div>
+          </div>        
+          <label for="password" class="col-form-label">패스워드</label>
+          <input type="password" class="form-control" id="password" name="password" />
+          <!--이름-->
+          <label for="name" class="col-form-label">이름</label>
+          <input type="text" class="form-control" id="name" name="name" />
+          <!--이메일-->
+          <label for="email" class="col-form-label">이메일</label>
+          <input type="email" class="form-control" id="email" name="email" />
+          <!-- 나이 -->
+          <label for="age" class="col-form-label">나이</label>
+          <input type="number" class="form-control" id="age" name="age" />
+          <!-- 성별 -->
+          <label for="sex" class="col-form-label">성별</label>
+          <br>
+          <select name="sex">
+              <option value="">성별선택</option>
+              <option value="male">남자</option>
+              <option value="female">여자</option>
+          </select>
+          <br>
+          <!-- 키 -->
+          <label for="height" class="col-form-label">키
+              <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="당신의 키를 입력하세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="basic-addon2">CM</span>
+              </div>
+          </label>
+          <br>
+          <!-- 몸무게 -->
+          <label for="weight" class="col-form-label">몸무게
+              <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="당신의 몸무게를 입력하세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="basic-addon2">KG</span>
+              </div>
+          </label>
+          <br>
+          <!-- 병 -->
+          <label for="weight" class="col-form-label">병
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="병" aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                </div>
+          </label>
+          <br>
+          <!-- 알레르기 -->
+          <label for="weight" class="col-form-label">알레르기
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="알레르기" aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                </div>
+          </label>
+          <br>
+          <!-- 특이사항 -->
+          <label for="weight" class="col-form-label">특이사항
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="음주, 흡연 등 특이사항을 적어주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                </div>
+          </label>
+          <br>
+        <button type="submit" class="btn btn-primary">수정</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
