@@ -22,7 +22,7 @@ module.exports = function () {
         passReqToCallback: true
         }, async function(req, id, password, done) {
             try {
-                var account = {user: '',name: '', email: '', age: '', sex: '', height:'', weight: '', sick: '', allergy: '', significant: '' };
+                var account = {user: '',name: '', email: '', age: '', sex: '', height:'', weight: '',sick1: '',sick2: '', sick3: '', sick4: '', sick5: '',allergy1: '',allergy2: '', allergy3: '', allergy4: '', allergy5: '', significant1: '',significant2: '', significant3: '', significant4: '', significant5: '' };
                 const result = await UserModel.GetUser(id);
                 if (result.error) {
                     console.log(result.error);
@@ -47,9 +47,21 @@ module.exports = function () {
                             account.age = user[0].age;
                             account.height = user[0].height;
                             account.weight = user[0].weight;
-                            account.sick = user[0].sick;
-                            account.allergy = user[0].allergy;
-                            account.significant = user[0].significant;
+                            account.sick1 = user[0].sick1;
+                            account.sick2 = user[0].sick2;
+                            account.sick3 = user[0].sick3;
+                            account.sick4 = user[0].sick4;
+                            account.sick5 = user[0].sick5;                           
+                            account.allergy1 = user[0].allergy1;
+                            account.allergy2 = user[0].allergy2;
+                            account.allergy3 = user[0].allergy3;
+                            account.allergy4 = user[0].allergy4;
+                            account.allergy5 = user[0].allergy5;
+                            account.significant1 = user[0].significant1;
+                            account.significant2 = user[0].significant2;
+                            account.significant3 = user[0].significant3;
+                            account.significant4 = user[0].significant4;
+                            account.significant5 = user[0].significant5;
                             return done(null, account);
                         }
                     }); //hasher

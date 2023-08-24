@@ -46,67 +46,129 @@
               </div>
               <div class="col-sm-9">
                 <div class="row">
-                  <%=user_id%>
+                  <%=user_name%>
                 </div>
               </div>
             </div>
           </div>   
           <!--이메일-->
-          <label for="email" class="col-form-label">이메일</label>
-          <input type="email" class="form-control" id="email" name="email" />
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                이메일
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_email%>
+                </div>
+              </div>
+            </div>
+          </div>  
           <!-- 나이 -->
-          <label for="age" class="col-form-label">나이</label>
-          <input type="number" class="form-control" id="age" name="age" />
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                나이
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_age%>
+                </div>
+              </div>
+            </div>
+          </div>  
           <!-- 성별 -->
-          <label for="sex" class="col-form-label">성별</label>
-          <br>
-          <select name="sex">
-              <option value="">성별선택</option>
-              <option value="male">남자</option>
-              <option value="female">여자</option>
-          </select>
-          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                성별
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_sex%>
+                </div>
+              </div>
+            </div>
+          </div>  
           <!-- 키 -->
-          <label for="height" class="col-form-label">키
-              <div class="input-group mb-3">
-                  <input type="number" class="form-control" placeholder="당신의 키를 입력하세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <span class="input-group-text" id="basic-addon2">CM</span>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                키
               </div>
-          </label>
-          <br>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_height%>
+                </div>
+              </div>
+            </div>
+          </div>  
           <!-- 몸무게 -->
-          <label for="weight" class="col-form-label">몸무게
-              <div class="input-group mb-3">
-                  <input type="number" class="form-control" placeholder="당신의 몸무게를 입력하세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <span class="input-group-text" id="basic-addon2">KG</span>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                몸무게
               </div>
-          </label>
-          <br>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_weight%>
+                </div>
+              </div>
+            </div>
+          </div>  
           <!-- 병 -->
-          <label for="weight" class="col-form-label">병
-              <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="병" aria-label="Recipient's username" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                병
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_sick1%>
+                  <%=user_sick2%>
+                  <%=user_sick3%>
+                  <%=user_sick4%>
+                  <%=user_sick5%>
                 </div>
-          </label>
-          <br>
+              </div>
+            </div>
+          </div>  
           <!-- 알레르기 -->
-          <label for="weight" class="col-form-label">알레르기
-              <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="알레르기" aria-label="Recipient's username" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                알레르기
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_allergy1%>
+                  <%=user_allergy2%>
+                  <%=user_allergy3%>
+                  <%=user_allergy4%>
+                  <%=user_allergy5%>
                 </div>
-          </label>
-          <br>
+              </div>
+            </div>
+          </div>  
           <!-- 특이사항 -->
-          <label for="weight" class="col-form-label">특이사항
-              <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="음주, 흡연 등 특이사항을 적어주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                특이사항
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <%=user_significant1%>
+                  <%=user_significant2%>
+                  <%=user_significant3%>
+                  <%=user_significant4%>
+                  <%=user_significant5%>
                 </div>
-          </label>
+              </div>
+            </div>
+          </div>  
           <br>
-        <button type="submit" class="btn btn-primary">수정</button>
+        <button type="submit" class="btn btn-primary" onClick ="location.href='/user/signup'">수정</button>
       </div>
   </main>
 </body>
