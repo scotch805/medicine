@@ -14,7 +14,7 @@ const session           = require('express-session');
 const flash             = require('connect-flash');
 
 passportConfig()
-
+ 
 //세션 설정
 app.use(
     session({
@@ -45,5 +45,6 @@ app.use(express.urlencoded({ extended: false}));
 
 const PORT = 8081;
 app.listen(PORT, function() {
+    console.log('Server Start');
     console.log('Listening on port: ', PORT);
 });
