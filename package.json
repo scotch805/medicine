@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "add-event-listener": "^1.0.0",
+    "ajax": "^0.0.4",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "cheerio": "^1.0.0-rc.12",

@@ -16,5 +16,12 @@ module.exports = {
             return {result: null, error: error};
         }
     },
-
+    UpdateUser: async function(id, updatedData) {
+        try {
+            const result = await db.query('UPDATE user SET ? WHERE id = ?', [updatedData, id]);
+            return { result: result, error: null };
+        } catch (error) {
+            return { result: null, error: error };
+        }
+    },
 }
