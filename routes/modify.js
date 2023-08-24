@@ -11,6 +11,7 @@ const user = require('../models/user');
 
 
 
+
 router.post('/',function(req, res) {
     const sex = req.body.user_sex;
     const age = req.body.user_age;
@@ -31,6 +32,8 @@ router.post('/',function(req, res) {
     const significant3 = req.body.user_significant3;
     const significant4 = req.body.user_significant4;
     const significant5 = req.body.user_significant5;
+
+  
 });
 
 router.get('/',function(req, res) {
