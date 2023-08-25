@@ -54,7 +54,7 @@ router.get('/', auth.CheckAuth, function(req, res) {
     // console.log(userinfo);
     // console.log(user_allergy1);
     console.log(auth.CheckAuth);
-    res.render('index', {user_id:user_id, user_name:user_name});
+    res.render('index', {user_id:user_id, user_name:user_name, user_age: user_age});
 });
 // 사용자가 복용하는 약들을 표시
 // 건강상의 주의사항 표시
