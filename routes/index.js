@@ -1,6 +1,7 @@
 const express     = require('express');
 const router      = express.Router();
 const auth        = require('./auth');
+const { GetUser } = require('../models/user');
 
 router.get('/', auth.CheckAuth, function(req, res) {
     let user_id = undefined;
@@ -50,13 +51,15 @@ router.get('/', auth.CheckAuth, function(req, res) {
         user_significant4 = req.session.passport.user['significant4'];   
         user_significant5 = req.session.passport.user['significant5'];   
     } 
-    console.log(userinfo);
-    console.log(user_allergy1);
+    // console.log(userinfo);
+    // console.log(user_allergy1);
     console.log(auth.CheckAuth);
-    res.render('index', {user_id:user_id, user_name:user_name});
+    res.render('index', {user_id:user_id, user_name:user_name, user_age: user_age});
 });
 // 사용자가 복용하는 약들을 표시
 // 건강상의 주의사항 표시
 // 현재 건강 상태는 항상 적을 수 있게 해야함
+
+    
 
 module.exports = router;
