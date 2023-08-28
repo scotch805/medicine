@@ -48,16 +48,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 const mainRouter    = require('./routes/index');
-const newsRouter    = require('./routes/news');
 const userRouter    = require('./routes/user');
 const infoRouter    = require('./routes/info');
 const modiRouter    = require('./routes/modify');
+const { func } = require('@tensorflow/tfjs-data');
 
 const tfjsRouter    = require('./routes/tfjs');
 const medi_infoRouter    = require('./routes/medi_info');
 
 app.use('/', mainRouter);
-app.use('/news',newsRouter);
 app.use('/user', userRouter);
 app.use('/info', infoRouter);
 app.use('/modify', modiRouter);
@@ -109,6 +108,8 @@ app.get('/get-image/:id', (req, res) => {
   });
 });
 // ===========================================//
+
+
   
 const PORT = 8081;
 app.listen(PORT, function() {

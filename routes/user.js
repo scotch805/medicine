@@ -11,23 +11,150 @@ const user = require('../models/user');
 
 
 router.get('/signup', async function(req, res) { 
-    let user_id = undefined;
-    if (req.session.passport) {
-        user_id = req.session.passport.user['user'];
-    }
-	res.render('signup', {user_id : user_id
-    
-    });
+    /*
+    data = {
+        user_id: undefined,
+        user_name: undefined,
+        user_email: undefined,
+        user_age: undefined,
+        user_sex: undefined,
+        user_height : undefined,
+        user_weight : undefined,
+        user_sick1 : undefined,
+        user_allergy1 : undefined,
+        user_significant1 : undefined,
+        user_sick2 : undefined,
+        user_allergy2 : undefined,
+        user_significant2 : undefined,
+        user_sick3 : undefined,
+        user_allergy3 : undefined,
+        user_significant3 : undefined,
+        user_sick4 : undefined,
+        user_allergy4 : undefined,
+        user_significant4 : undefined,
+        user_sick5 : undefined,
+        user_allergy5 : undefined,
+        user_significant5 : undefined
+     } 
+     */
+     /* 
+        user_id : undefined,
+        user_name : undefined,
+        user_email : undefined,
+        user_age : undefined,
+        user_sex : undefined,
+        user_height : undefined,
+        user_weight : undefined,
+        user_sick1 : undefined,
+        user_allergy1 : undefined,
+        user_significant1 : undefined,
+        user_sick2 : undefined,
+        user_allergy2 : undefined,
+        user_significant2 : undefined,
+        user_sick3 : undefined,
+        user_allergy3 : undefined,
+        user_significant3 : undefined,
+        user_sick4 : undefined,
+        user_allergy4 : undefined,
+        user_significant4 : undefined,
+        user_sick5 : undefined,
+        user_allergy5 : undefined,
+        user_significant5 : undefined,
+   */
+  /*
+       if (req.session.passport) {
+       
+           user_id = req.session.passport.user['user'];
+           user_name = req.session.passport.user['name'];
+           user_email = req.session.passport.user['email'];
+           user_age = req.session.passport.user['age']; 
+           user_sex = req.session.passport.user['sex']; 
+           user_height = req.session.passport.user['height']; 
+           user_weight = req.session.passport.user['weight']; 
+           user_sick1 = req.session.passport.user['sick1']; 
+           user_allergy1 = req.session.passport.user['allergy1'];
+           user_significant1 = req.session.passport.user['significant1'];
+           user_sick2 = req.session.passport.user['sick2']; 
+           user_allergy2 = req.session.passport.user['allergy2'];
+           user_significant2 = req.session.passport.user['significant2'];
+           user_sick3 = req.session.passport.user['sick3']; 
+           user_allergy3 = req.session.passport.user['allergy3'];
+           user_significant3 = req.session.passport.user['significant3'];
+           user_sick4 = req.session.passport.user['sick4']; 
+           user_allergy4 = req.session.passport.user['allergy4'];
+           user_significant4 = req.session.passport.user['significant4']; 
+           user_sick5 = req.session.passport.user['sick5']; 
+           user_allergy5 = req.session.passport.user['allergy5'];
+           user_significant5 = req.session.passport.user['significant5'];  
+           
+           result = await UserModel.GetUser(user_id)
+           res.render('info', {data: result.result[0]});
+       } 
+       else {
+         res.render('signup', {data: data});
+       }
+    */
+    //res.render('signup', {data: data});
+    res.render('signup');
 });
 
 router.get('/signin', async function(req, res) {
-    let user_id = undefined;
-    if (req.session.passport) {
-        user_id = req.session.passport.user['user'];
-    }
-	res.render('signin', {user_id: user_id
-        //status: result.success ? 'logined' : 'logouted',
-    });
+    data = {
+        user_id: undefined,
+        user_name: undefined,
+        user_email: undefined,
+        user_age: undefined,
+        user_sex: undefined,
+        user_height : undefined,
+        user_weight : undefined,
+        user_sick1 : undefined,
+        user_allergy1 : undefined,
+        user_significant1 : undefined,
+        user_sick2 : undefined,
+        user_allergy2 : undefined,
+        user_significant2 : undefined,
+        user_sick3 : undefined,
+        user_allergy3 : undefined,
+        user_significant3 : undefined,
+        user_sick4 : undefined,
+        user_allergy4 : undefined,
+        user_significant4 : undefined,
+        user_sick5 : undefined,
+        user_allergy5 : undefined,
+        user_significant5 : undefined
+     } 
+
+       if (req.session.passport) {
+       
+           user_id = req.session.passport.user['user'];
+           user_name = req.session.passport.user['name'];
+           user_email = req.session.passport.user['email'];
+           user_age = req.session.passport.user['age']; 
+           user_sex = req.session.passport.user['sex']; 
+           user_height = req.session.passport.user['height']; 
+           user_weight = req.session.passport.user['weight']; 
+           user_sick1 = req.session.passport.user['sick1']; 
+           user_allergy1 = req.session.passport.user['allergy1'];
+           user_significant1 = req.session.passport.user['significant1'];
+           user_sick2 = req.session.passport.user['sick2']; 
+           user_allergy2 = req.session.passport.user['allergy2'];
+           user_significant2 = req.session.passport.user['significant2'];
+           user_sick3 = req.session.passport.user['sick3']; 
+           user_allergy3 = req.session.passport.user['allergy3'];
+           user_significant3 = req.session.passport.user['significant3'];
+           user_sick4 = req.session.passport.user['sick4']; 
+           user_allergy4 = req.session.passport.user['allergy4'];
+           user_significant4 = req.session.passport.user['significant4']; 
+           user_sick5 = req.session.passport.user['sick5']; 
+           user_allergy5 = req.session.passport.user['allergy5'];
+           user_significant5 = req.session.passport.user['significant5'];  
+           
+           result = await UserModel.GetUser(user_id)
+           res.render('signin', {data: result.result[0]});
+       } 
+       else {
+         res.render('signin', {data: data});
+       }
     
 });
 
