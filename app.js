@@ -1,9 +1,5 @@
 
 const express       = require('express');
-const mainRouter    = require('./routes/index');
-const newsRouter    = require('./routes/news');
-const userRouter    = require('./routes/user');
-const infoRouter    = require('./routes/info');
 
 const app = express();
 
@@ -57,14 +53,18 @@ const userRouter    = require('./routes/user');
 const infoRouter    = require('./routes/info');
 const modiRouter    = require('./routes/modify');
 
+const tfjsRouter    = require('./routes/tfjs');
+const medi_infoRouter    = require('./routes/medi_info');
+
 app.use('/', mainRouter);
 app.use('/news',newsRouter);
 app.use('/user', userRouter);
 app.use('/info', infoRouter);
+app.use('/modify', modiRouter);
 
 app.use('/tfjs', transfer1Router);
+app.use('/medi_info', medi_infoRouter);
 
-app.use('/modify', modiRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
@@ -72,6 +72,16 @@ app.use(express.urlencoded({ extended: false}));
 // ===========================================//
 // 정적 파일 서빙 (이미지 경로를 public 폴더 안에서 찾음)
 app.use(express.static('public'));
+
+
+app.get('/results', (req, res) => {
+  // 데이터베이스에서 결과를 가져와서 보여주는 로직
+  const query = 'SELECT * FROM results'; // 적절한 쿼리를 작성해야 함
+  db.query(query, (err, result) => {
+      if (err) throw err;
+      res.send(result);
+  });
+});
 
 // GET 요청 처리
 app.get('/get-image/:id', (req, res) => {
