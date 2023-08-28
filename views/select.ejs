@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -128,80 +127,55 @@
         }
     </style>
 </head>
-
+    </head>
 <body>
-    <div class="container">
-        <div class="form-check">
-            <label>
-                <input type="checkbox" class="checkbox" value="1"> 펠로엔정
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="2"> 타이레놀정
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="3"> 아진팜정
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="4"> 애스펜정
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="5"> 네오티가손
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="6"> 테라싸이클린캡슐
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="7"> 미노씬캡슐
-            </label>
-            <label>
-                <input type="checkbox" class="checkbox" value="8"> 나제론오디정
-            </label>
-            <!-- 다른 체크박스 항목들도 동일하게 추가 -->
-        </div>
-
-        <div id="resultBox">
-            <!-- 선택한 조건에 따른 결과가 여기에 표시될 것입니다. -->
-            <!-- 서버로부터 받아온 데이터를 여기에 출력 -->
-            <div id="searchResults">
-                <div id="noResultsMessage">선택된 약이 없습니다.</div>
+	<main>
+        <form action='/select' method="post">
+            <div class="container">
+                <div class="form-check">
+                    <label>
+                        <input type="checkbox" class="checkbox" value="1"> 펠로엔정
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="2"> 타이레놀정
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="3"> 아진팜정
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="4"> 애스펜정
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="5"> 네오티가손
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="6"> 테라싸이클린캡슐
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="7"> 미노씬캡슐
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox" value="8"> 나제론오디정
+                    </label>
+                    <!-- 다른 체크박스 항목들도 동일하게 추가 -->
+                </div>
+        
+                <div id="resultBox">
+                    <!-- 선택한 조건에 따른 결과가 여기에 표시될 것입니다. -->
+                    <!-- 서버로부터 받아온 데이터를 여기에 출력 -->
+                    <div id="searchResults">
+                        <div id="noResultsMessage">선택된 약이 없습니다.</div>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button id="showResults">결과 보기</button>
+                    <button id="clearSelection">Clear Selection</button>
+                </div>
             </div>
-        </div>
-
-
-        <div class="btn-container">
-            <button id="showResults">결과 보기</button>
-            <button id="clearSelection">Clear Selection</button>
-        </div>
-
-        <div>
-            <h2>검색결과</h2>
-        </div>
-
-        <div id=":resultArea">
-
-        </div>
-
-        <!-- <div id="resultGrid" class="container text-center">
-            <div class="row row-cols-3">
-                <div class="resultGrid">병용금기</div>
-                <div class="resultGrid">연령금기</div>
-                <div class="resultGrid">임부금기</div>
-                <div class="resultGrid">동일성분중복</div>
-                <div class="resultGrid">효능군중복</div>
-                <div class="resultGrid">투여기간주의</div>
-            </div>
-        </div> -->
-
-
-
-        <!-- 결과를 표시할 영역 -->
-        <div id="resultArea">
-
-
-        </div>
-
-
-        <script>
+        </form>
+    </main>
+</body>
+<script>
             const checkboxes = document.querySelectorAll('.checkbox');
             const showResultsButton = document.getElementById('showResults');
             const clearSelectionButton = document.getElementById('clearSelection');
@@ -233,13 +207,14 @@
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function () {
                     let selectedInfo = [];
+                    
 
                     checkboxes.forEach(cb => {
                         if (cb.checked && results[cb.value]) {
                             selectedInfo.push(results[cb.value]);
                         }
                     });
-
+                    
                     // 선택한 약 정보를 표 형식으로 표시
                     if (selectedInfo.length > 0) {
                         let table = '<table id="resultTable">';
@@ -277,53 +252,23 @@
                         selectedValues.push(cb.value);
                     }
                 });
+                 /*선택한 약은 리스트에 하나씩 넣고 하나씩 빼서 drug 데이터 안에 넣기*/
+                i = 1;
+                for(const value of selectedValues) {
+                    if (results[value]) {
+                        if (`user_info.drug${i}` == 'undefined') {
+                            `user_info.drug${i}` =  results[value].name;
+                            i++;
+                            console.log(user_info.drug1);
+                        }     
+                    }
+                }
+            });
 
-                let resultMessages = [];
-                resultMessages.push(results['1'].name)
-                for (const value of selectedValues) {
+            /*for (const value of selectedValues) {
                     if (results[value]) {
                         resultMessages.push(results[value].name);
                     }
-                }
-
-                if ((selectedValues.includes('5') && selectedValues.includes('6')) ||
-                    (selectedValues.includes('5') && selectedValues.includes('7')) ||
-                    (selectedValues.includes('5') && selectedValues.includes('6') && selectedValues.includes('7'))) {
-                    resultMessages.push('병용금지');
-                }
-
-                if (selectedValues.includes('6') || selectedValues.includes('7')) {
-                    resultMessages.push('연령금기');
-                }
-
-                if (selectedValues.includes('1') || selectedValues.includes('4') || selectedValues.includes('5') || selectedValues.includes('6') || selectedValues.includes('7')) {
-                    resultMessages.push('임부금기');
-                }
-
-                if (selectedValues.includes('1') && selectedValues.includes('4')) {
-                    resultMessages.push('효능군중복');
-                }
-
-                if (selectedValues.includes('2') || selectedValues.includes('4')) {
-                    resultMessages.push('용량중복');
-                }
-
-                if (selectedValues.includes('1')) {
-                    resultMessages.push('투여기간주의');
-                }
-
-                if (resultMessages.length === 0) {
-                    resultMessages.push('선택된 약 정보가 없습니다.');
-                }
-
-                resultArea.innerHTML = '<div>' + resultMessages.join('</div><div>') + '</div>';
-            });
-
-        </script>
-
-
-    </div>
-
-</body>
-
+                }*/
+</script>
 </html>
