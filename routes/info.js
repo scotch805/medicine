@@ -1,7 +1,7 @@
 const express     = require('express');
 const router      = express.Router();
 const auth        = require('./auth');
-const UserModel   = require('../models/user')
+const UserModel   = require('../models/user');
 
 router.get('/', auth.CheckAuth, async function(req, res) {
   let id = req.session.passport.user['user'];

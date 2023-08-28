@@ -51,6 +51,7 @@ const mainRouter    = require('./routes/index');
 const userRouter    = require('./routes/user');
 const infoRouter    = require('./routes/info');
 const modiRouter    = require('./routes/modify');
+const mediRouter    = require('./routes/medi_info');
 const { func } = require('@tensorflow/tfjs-data');
 
 const tfjsRouter    = require('./routes/tfjs');
@@ -60,7 +61,7 @@ app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/info', infoRouter);
 app.use('/modify', modiRouter);
-
+app.use('/medi_info', mediRouter);
 app.use('/tfjs', transfer1Router);
 app.use('/medi_info', medi_infoRouter);
 
