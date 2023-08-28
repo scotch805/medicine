@@ -4,7 +4,9 @@ const LocalStrategy     = require('passport-local').Strategy;
 const bkfd2Password     = require("pbkdf2-password");
 const hasher            = bkfd2Password();
 
-const UserModel         = require('./models/user')
+const UserModel         = require('./models/user');
+const modify            = require('./routes/modify')
+
 
 module.exports = function () {
     //로그인 시 사용됨
@@ -22,8 +24,17 @@ module.exports = function () {
         passReqToCallback: true
         }, async function(req, id, password, done) {
             try {
+                //만약 로그인을 한 경우
+                    // 그대로 진행
+                //아니면 modify에서 넘어오면
+                    //업데이트된 데이터를 sql에서 받아오기
+            
+
                 var account = {user: '',name: '', email: '', age: '', sex: '', height:'', weight: '',sick1: '',sick2: '', sick3: '', sick4: '', sick5: '',allergy1: '',allergy2: '', allergy3: '', allergy4: '', allergy5: '', significant1: '',significant2: '', significant3: '', significant4: '', significant5: '' };
                 const result = await UserModel.GetUser(id);
+
+
+                
                 if (result.error) {
                     console.log(result.error);
                     return done(false, null);
@@ -66,6 +77,8 @@ module.exports = function () {
                         }
                     }); //hasher
                 }
+
+
             } catch (error) {
                 console.log(error);
                 done(error);

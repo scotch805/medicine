@@ -7,7 +7,7 @@ CREATE TABLE `medicine_information` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `manufacturer` varchar(255) DEFAULT NULL,
-  `category` enum('전문','일반') DEFAULT NULL,
+  `category` enum('전문','일반','departed') DEFAULT NULL,
   `dosage` varchar(255) DEFAULT NULL,
   `efficacy` text,
   `administration` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,

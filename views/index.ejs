@@ -13,9 +13,13 @@
 		<main>
         당신의 개인 약사입니다.
         <br>
-        <%=user_name%> 님에게 최적의 경험을 제공하겠습니다
-        <%=user_age%>
-        <p> 현재 당신이 먹고 있는 약입니다.</p>
+        <% if (typeof user_info != 'undefined') { %> { %>
+          <%=user_info.id%>님에게 최적의 경험을 제공하겠습니다.
+          <p> 현재 당신이 먹고 있는 약입니다.</p>
+        <% } else { %>
+            <p>사용자 정보가 없습니다.</p>
+        <% } %>
+        
         <br>
         <img class="img-thumbnail" width="300dp" height="300dp" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbNZo14%2Fbtq17bsvo5i%2FOSV3gGWnwAKqNB0EOSQkrK%2Fimg.png"  alt="test">
         <img class="img-thumbnail" width="300dp" height="300dp" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbNZo14%2Fbtq17bsvo5i%2FOSV3gGWnwAKqNB0EOSQkrK%2Fimg.png"  alt="test" hidden>

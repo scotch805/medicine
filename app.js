@@ -1,9 +1,9 @@
 
 const express       = require('express');
-const mainRouter    = require('./routes/index');
-const newsRouter    = require('./routes/news');
-const userRouter    = require('./routes/user');
-const infoRouter    = require('./routes/info');
+// const mainRouter    = require('./routes/index');
+// const newsRouter    = require('./routes/news');
+// const userRouter    = require('./routes/user');
+// const infoRouter    = require('./routes/info');
 
 const app = express();
 
@@ -52,13 +52,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 const mainRouter    = require('./routes/index');
-const newsRouter    = require('./routes/news');
 const userRouter    = require('./routes/user');
 const infoRouter    = require('./routes/info');
 const modiRouter    = require('./routes/modify');
 
 app.use('/', mainRouter);
-app.use('/news',newsRouter);
 app.use('/user', userRouter);
 app.use('/info', infoRouter);
 
