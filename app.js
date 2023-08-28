@@ -55,6 +55,7 @@ const mainRouter    = require('./routes/index');
 const userRouter    = require('./routes/user');
 const infoRouter    = require('./routes/info');
 const modiRouter    = require('./routes/modify');
+const { func } = require('@tensorflow/tfjs-data');
 
 app.use('/', mainRouter);
 app.use('/user', userRouter);
@@ -97,6 +98,8 @@ app.get('/get-image/:id', (req, res) => {
   });
 });
 // ===========================================//
+
+
   
 const PORT = 8081;
 app.listen(PORT, function() {
