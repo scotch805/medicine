@@ -278,33 +278,41 @@
                     }
                 });
 
-                let resultMessage = '';
+                let resultMessages = [];
 
-                if ((selectedValues.includes('5') && selectedValues.includes('6'))||(selectedValues.includes('5') && selectedValues.includes('7'))||(selectedValues.includes('5') && selectedValues.includes('6') && selectedValues.includes('7'))){
-                    resultMessage = '병용금지';
-                } 
-                // else {
-                //     resultMessage = '선택된 약 정보가 없습니다.';
-                // }
+                if ((selectedValues.includes('5') && selectedValues.includes('6')) ||
+                    (selectedValues.includes('5') && selectedValues.includes('7')) ||
+                    (selectedValues.includes('5') && selectedValues.includes('6') && selectedValues.includes('7'))) {
+                    resultMessages.push('병용금지');
+                }
 
-                if (selectedValues.includes('6') || selectedValues.includes('7')){
-                    resultMessage = '연령금기';
-                } 
+                if (selectedValues.includes('6') || selectedValues.includes('7')) {
+                    resultMessages.push('연령금기');
+                }
 
-                if (selectedValues.includes('1') || selectedValues.includes('4')|| selectedValues.includes('5')|| selectedValues.includes('6')|| selectedValues.includes('7')){
-                    resultMessage = '임부금기';
-                } 
+                if (selectedValues.includes('1') || selectedValues.includes('4') || selectedValues.includes('5') || selectedValues.includes('6') || selectedValues.includes('7')) {
+                    resultMessages.push('임부금기');
+                }
 
-                if (selectedValues.includes('1') || selectedValues.includes('4')){
-                    resultMessage = '효능군중복';
-                } 
+                if (selectedValues.includes('1') && selectedValues.includes('4')) {
+                    resultMessages.push('효능군중복');
+                }
 
-                if (selectedValues.includes('1')){
-                    resultMessage = '투여기간주의';
-                } 
+                if (selectedValues.includes('2') || selectedValues.includes('4')) {
+                    resultMessages.push('용량중복');
+                }
 
-                resultArea.innerHTML = '<div>' + resultMessage + '</div>';
+                if (selectedValues.includes('1')) {
+                    resultMessages.push('투여기간주의');
+                }
+
+                if (resultMessages.length === 0) {
+                    resultMessages.push('선택된 약 정보가 없습니다.');
+                }
+
+                resultArea.innerHTML = '<div>' + resultMessages.join('</div><div>') + '</div>';
             });
+
         </script>
 
 
